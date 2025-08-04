@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertUserSchema, insertProfileSchema, insertInterestSchema } from "@shared/schema";
 import { calculateCompatibility, analyzePersonality, generateProfileSuggestions } from "./ai";
+import { getGoogleAuthUrl, getGoogleUserInfo } from "./googleAuth";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -81,6 +82,46 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ user: { ...user, password: undefined }, token });
     } catch (error: any) {
       res.status(400).json({ message: "Login failed", error: error.message });
+    }
+  });
+
+  // Google OAuth routes
+  app.get("/api/auth/google", (req: Request, res: Response) => {
+    const authUrl = getGoogleAuthUrl();
+    res.redirect(authUrl);
+  });
+
+  app.get("/api/auth/google/callback", async (req: Request, res: Response) => {
+    try {
+      const { code } = req.query;
+      
+      if (!code || typeof code !== 'string') {
+        return res.status(400).json({ message: "Authorization code required" });
+      }
+
+      const googleUser = await getGoogleUserInfo(code);
+      
+      // Check if user exists
+      let user = await storage.getUserByEmail(googleUser.email!);
+      
+      if (!user) {
+        // Create new user
+        user = await storage.createUser({
+          email: googleUser.email!,
+          firstName: googleUser.firstName || '',
+          lastName: googleUser.lastName || '',
+          password: '', // No password for OAuth users
+          isVerified: googleUser.verified || false,
+        });
+      }
+
+      const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
+      
+      // Redirect to frontend with token
+      res.redirect(`/?token=${token}`);
+    } catch (error: any) {
+      console.error('Google OAuth error:', error);
+      res.redirect('/login?error=oauth_failed');
     }
   });
 

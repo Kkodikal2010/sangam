@@ -77,7 +77,7 @@ export class DatabaseStorage implements IStorage {
     
     const [newProfile] = await db
       .insert(profiles)
-      .values(profileData)
+      .values([profileData])
       .returning();
     return newProfile;
   }

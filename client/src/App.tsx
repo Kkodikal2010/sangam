@@ -10,6 +10,7 @@ import Profile from "@/pages/profile";
 import Matches from "@/pages/matches";
 import Register from "@/pages/register";
 import Login from "@/pages/login";
+import Mission from "@/pages/mission";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/matches" component={Matches} />
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
+      <Route path="/mission" component={Mission} />
       <Route component={NotFound} />
     </Switch>
   );

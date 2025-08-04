@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { SiGoogle } from "react-icons/si";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email"),
@@ -107,6 +108,29 @@ export default function Login() {
               {loginMutation.isPending ? "Signing In..." : "Sign In"}
             </Button>
           </form>
+
+          <div className="mt-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-gray-300" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-white px-2 text-gray-500">Or continue with</span>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={() => window.location.href = '/api/auth/google'}
+              >
+                <SiGoogle className="mr-2 h-4 w-4" />
+                Sign in with Google
+              </Button>
+            </div>
+          </div>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-neutral-600">
