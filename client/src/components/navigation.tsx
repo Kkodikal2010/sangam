@@ -15,39 +15,29 @@ export default function Navigation({ isAuthenticated = false }: NavigationProps)
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/">
-            <div className="flex items-center space-x-2 cursor-pointer">
-              <Heart className="h-8 w-8 text-rose-600" />
-              <span className="text-2xl font-bold text-gray-900 dark:text-white">
-                Sangam
-              </span>
-            </div>
+          <Link href="/" className="flex items-center space-x-2 cursor-pointer">
+            <Heart className="h-8 w-8 text-rose-600" />
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+              Sangam
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/mission">
-              <a className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                Our Mission
-              </a>
+            <Link href="/mission" className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+              Our Mission
             </Link>
             
             {isAuthenticated ? (
               <>
-                <Link href="/dashboard">
-                  <a className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                    Dashboard
-                  </a>
+                <Link href="/dashboard" className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                  Dashboard
                 </Link>
-                <Link href="/matches">
-                  <a className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                    Matches
-                  </a>
+                <Link href="/matches" className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                  Matches
                 </Link>
-                <Link href="/profile">
-                  <a className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                    Profile
-                  </a>
+                <Link href="/profile" className="text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                  Profile
                 </Link>
               </>
             ) : (
@@ -84,28 +74,20 @@ export default function Navigation({ isAuthenticated = false }: NavigationProps)
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-3">
-              <Link href="/mission">
-                <a className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                  Our Mission
-                </a>
+              <Link href="/mission" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                Our Mission
               </Link>
               
               {isAuthenticated ? (
                 <>
-                  <Link href="/dashboard">
-                    <a className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                      Dashboard
-                    </a>
+                  <Link href="/dashboard" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                    Dashboard
                   </Link>
-                  <Link href="/matches">
-                    <a className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                      Matches
-                    </a>
+                  <Link href="/matches" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                    Matches
                   </Link>
-                  <Link href="/profile">
-                    <a className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
-                      Profile
-                    </a>
+                  <Link href="/profile" className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
+                    Profile
                   </Link>
                 </>
               ) : (

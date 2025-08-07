@@ -1,0 +1,257 @@
+Copy and paste exactly the text below into Replit’s AI prompt box. This will scaffold, configure, and deploy your entire Sangam matrimonial website—frontend, backend, database, AI, and media—ready to run with a single “Run” click. Treat it as the only chance to explain everything Replit needs to set up and deploy your site.
+I want you to generate a complete Replit project for a production-ready, AI-powered Indian matrimony web app called “Sangam”. This is the **only prompt** you will ever get—so include **everything** from project structure, dependency installation, configuration, secrets, environment variables, startup scripts, and deployment instructions. Follow these specifications exactly:
+
+---
+
+## 1. Tech Stack
+- **Frontend**: React (create-react-app) + Bootstrap + custom CSS  
+- **Backend Web Framework**: Django + Django REST Framework  
+- **AI Microservice**: Flask + Hugging Face Transformers (no OpenAI)  
+- **Database**: PostgreSQL  
+- **Media Storage**: Cloudinary  
+- **Run Orchestration**: A single `run.sh` script invoked by Replit’s `.replit` → `run` command.
+
+---
+
+## 2. Sample 	`Project Structure
+
+/
+ ├── .replit
+ ├── run.sh
+ ├── requirements.txt
+ ├── package.json
+ ├── replit.nix # if needed for Python versions
+ ├── django_backend/
+ │ ├── manage.py
+ │ ├── astrologer_backend/
+ │ │ ├── settings.py
+ │ │ ├── urls.py
+ │ │ └── wsgi.py
+ │ └── api/
+ │ ├── models.py
+ │ ├── serializers.py
+ │ ├── views.py
+ │ ├── urls.py
+ │ └── ai_utils.py
+ ├── flask_ai_service/
+ │ ├── app.py
+ │ └── requirements.txt
+ └── frontend/
+ ├── public/
+ ├── src/
+ │ ├── components/
+ │ │ └── BirthDetailForm.js
+ │ ├── App.js
+ │ └── index.js
+ ├── package.json
+ └── tailwind.config.js # or Bootstrap config if using CRA
+
+---
+
+## 3. Environment Variables (via Replit Secrets)
+- `DATABASE_URL=postgresql://<USER>:<PASSWORD>@localhost:5432/astrologer_db`
+- `CLOUDINARY_URL=cloudinary://<API_KEY>:<API_SECRET>@<CLOUD_NAME>`
+- `HF_MODEL="facebook/bart-large-cnn"`  # summarization model
+- `DJANGO_SECRET_KEY="<generate a Django SECRET_KEY>"`
+- `DEBUG="False"`  # for production
+- `CORS_ALLOWED_ORIGINS="http://localhost:3000"`
+- Any other necessary credentials.
+
+---
+
+## 4. Dependency Files
+
+### `requirements.txt` (root)
+
+django
+ djangorestframework
+ psycopg2-binary
+ django-cors-headers
+ django-cloudinary-storage
+ gunicorn
+
+### `flask_ai_service/requirements.txt`
+
+flask
+ transformers
+ torch
+
+### `frontend/package.json`
+Include React, Bootstrap, axios, react-router-dom:
+```json
+{
+  "name": "frontend",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "^18.x",
+    "react-dom": "^18.x",
+    "axios": "^0.27.x",
+    "bootstrap": "^5.3.x",
+    "react-router-dom": "^6.x"
+  }
+}
+
+
+5. Core Code Snippets
+5.1 Django Settings (django_backend/astrologer_backend/settings.py)
+Configure DATABASES from DATABASE_URL
+
+
+Add corsheaders, rest_framework, cloudinary_storage, api to INSTALLED_APPS
+
+
+Configure DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+
+Load CLOUDINARY_URL from env
+
+
+Add CORS middleware & allowed origins
+
+
+5.2 Django Models /api/models.py
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    pass
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    photo = models.URLField(blank=True, null=True)
+
+class BirthDetail(models.Model):
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    birth_date = models.DateField()
+    birth_time = models.TimeField()
+    birth_place = models.CharField(max_length=100)
+    mars_house = models.PositiveSmallIntegerField()
+
+    def get_dosha(self):
+        return "Mangal Dosha present" if self.mars_house in [1,4,7,8,12] else "No Mangal Dosha"
+
+5.3 AI Utility (api/ai_utils.py)
+from transformers import pipeline
+import os
+
+summarizer = pipeline("summarization", model=os.getenv("HF_MODEL"))
+
+def explain_dosha(mars_house):
+    dosha = "Mangal Dosha present" if mars_house in [1,4,7,8,12] else "No Mangal Dosha"
+    prompt = f"Explain in simple terms what it means if someone has '{dosha}' in their horoscope."
+    result = summarizer(prompt, max_length=100, min_length=30, do_sample=False)
+    return result[0]["summary_text"]
+
+5.4 Django View (api/views.py)
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from .serializers import BirthDetailSerializer
+from .ai_utils import explain_dosha
+
+class BirthDetailAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = BirthDetailSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        bd = serializer.save(profile=request.user.profile)
+        explanation = explain_dosha(bd.mars_house)
+        return Response({"detail": serializer.data, "explanation": explanation})
+
+5.5 Flask AI Service (flask_ai_service/app.py)
+from flask import Flask, request, jsonify
+from transformers import pipeline
+import os
+
+app = Flask(__name__)
+summarizer = pipeline("summarization", model=os.getenv("HF_MODEL"))
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    house = data.get("mars_house")
+    dosha = "Mangal Dosha present" if house in [1,4,7,8,12] else "No Mangal Dosha"
+    prompt = f"Explain '{dosha}' in simple terms."
+    summary = summarizer(prompt, max_length=100, min_length=30, do_sample=False)
+    return jsonify({"explanation": summary[0]["summary_text"]})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+5.6 React Component (frontend/src/components/BirthDetailForm.js)
+import React, { useState } from "react";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export default function BirthDetailForm() {
+  const [data, setData] = useState({ birth_date: "", birth_time: "", birth_place: "", mars_house: "" });
+  const [result, setResult] = useState(null);
+
+  const handleChange = e => setData({...data, [e.target.name]: e.target.value});
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const token = localStorage.getItem("token"); 
+    const res = await axios.post("http://localhost:8000/api/birthdetails/", data, { headers: { Authorization: `Bearer ${token}` } });
+    setResult(res.data.explanation);
+  };
+
+  return (
+    <div className="container mt-5">
+      <form onSubmit={handleSubmit}>
+        <input className="form-control mb-2" type="date" name="birth_date" onChange={handleChange} required />
+        <input className="form-control mb-2" type="time" name="birth_time" onChange={handleChange} required />
+        <input className="form-control mb-2" type="text" name="birth_place" placeholder="Place" onChange={handleChange} required />
+        <input className="form-control mb-2" type="number" name="mars_house" placeholder="Mars House (1-12)" onChange={handleChange} required />
+        <button className="btn btn-primary">Get Prediction</button>
+      </form>
+      {result && <div className="alert alert-info mt-3">{result}</div>}
+    </div>
+  );
+}
+
+
+6. Orchestration & Deployment
+run.sh
+#!/usr/bin/env bash
+# Start Flask AI service
+cd flask_ai_service && pip install -r requirements.txt && FLASK_ENV=production nohup python app.py &
+
+# Start Django backend
+cd django_backend && pip install -r ../requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn astrologer_backend.wsgi:application --bind 0.0.0.0:8000 &
+
+# Start React frontend
+cd frontend && npm install && npm start
+
+Make run.sh executable: chmod +x run.sh
+.replit
+run = "bash run.sh"
+
+
+7. Final Steps
+Add all environment variables in Replit Secrets exactly as listed.
+
+
+Click Run; Replit will:
+
+
+Install Python and Node deps
+
+
+Launch Flask AI on port 5000
+
+
+Run Django (gunicorn) on port 8000
+
+
+Serve React on port 3000
+
+
+Browse to the React URL Replit provides; signup, enter birth details, and see AI-generated horoscope explanations via Hugging Face.
+
+
+That’s it—this prompt contains every detail to scaffold, configure, and deploy your entire Sangam website on Replit.
+
