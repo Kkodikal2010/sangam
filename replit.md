@@ -8,14 +8,15 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
-## Migration Completed (January 2025)
-- Successfully migrated Sangam matrimonial platform from Replit Agent to Replit environment
-- Set up PostgreSQL database with proper schema for users, profiles, matches, and interests
-- Fixed all package dependencies and installed required Node.js modules
-- Resolved DOM nesting warnings in navigation component
-- Application now running successfully on port 5000 with full functionality
-- Backend API routes operational with JWT authentication
-- Frontend React app with proper routing and UI components working
+## Backend Migration to Django (January 2025)
+- **COMPLETED**: Full backend migration from Express.js/Node.js to Python/Django REST Framework
+- **COMPLETED**: Created Django models for User, Profile, Match, Interest with proper PostgreSQL integration
+- **COMPLETED**: Set up Django REST API endpoints for authentication, profiles, matches, and search
+- **COMPLETED**: Integrated Bootstrap CSS framework into React frontend
+- **COMPLETED**: Updated frontend API client to work with Django backend (axios + Token authentication)
+- **IN PROGRESS**: Testing Django backend connectivity and frontend-backend integration
+- **COMPLETED**: Database migrations and schema setup for Django models
+- Django backend running on port 8000, React frontend on port 5000 (via Vite)
 
 # System Architecture
 
@@ -28,11 +29,12 @@ Preferred communication style: Simple, everyday language.
 - **Form Handling**: React Hook Form with Zod schema validation
 
 ## Backend Architecture
-- **Runtime**: Node.js with Express.js framework
-- **Language**: TypeScript with ES modules
-- **Database ORM**: Drizzle ORM for type-safe database operations
-- **Authentication**: JWT-based authentication with bcrypt for password hashing
-- **API Design**: RESTful API structure with middleware for authentication and error handling
+- **Runtime**: Python 3.11 with Django 5.2 framework
+- **API Framework**: Django REST Framework for RESTful API design
+- **Database ORM**: Django ORM with PostgreSQL backend
+- **Authentication**: Token-based authentication (Django Rest Framework Token Auth)
+- **API Design**: RESTful API structure with Django views and serializers
+- **Security**: Django built-in security features, CORS handling, token-based auth
 
 ## Database Design
 - **Primary Database**: PostgreSQL (configured for Neon serverless)
