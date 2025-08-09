@@ -18,14 +18,18 @@ export default function HeroSection() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/register">
+              <Link href="/sangam-landing">
                 <Button className="bg-white text-[#E91E63] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-neutral-50 transition-all duration-200 shadow-lg">
-                  Start Your Journey
+                  <i className="fas fa-heart mr-2"></i>
+                  Sangam - Find Your Match
                 </Button>
               </Link>
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#E91E63] transition-all duration-200">
-                Watch Demo
-              </Button>
+              <Link href="/register">
+                <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#E91E63] transition-all duration-200">
+                  <i className="fas fa-user-plus mr-2"></i>
+                  General Registration
+                </Button>
+              </Link>
             </div>
 
             <div className="flex items-center space-x-8 pt-4">

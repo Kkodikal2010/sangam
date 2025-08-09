@@ -11,11 +11,17 @@ import Matches from "@/pages/matches";
 import Register from "@/pages/register";
 import Login from "@/pages/login";
 import Mission from "@/pages/mission";
+import SangamLanding from "@/pages/sangam-landing";
+import SangamRegister from "@/pages/sangam-register";
+import TermsConditions from "@/pages/terms-conditions";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/sangam-landing" component={SangamLanding} />
+      <Route path="/sangam-register" component={SangamRegister} />
+      <Route path="/terms-conditions" component={TermsConditions} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/profile" component={Profile} />
       <Route path="/matches" component={Matches} />

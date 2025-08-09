@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import Header from "@/components/header";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
@@ -30,14 +31,18 @@ export default function Home() {
               Start your journey today with our comprehensive personality assessment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-              <button className="bg-white text-[#E91E63] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-neutral-50 transition-all duration-200 shadow-lg">
-                <i className="fas fa-heart mr-2"></i>
-                Create Your Profile
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#E91E63] transition-all duration-200">
-                <i className="fas fa-play mr-2"></i>
-                Watch Success Stories
-              </button>
+              <Link href="/sangam-landing">
+                <button className="bg-white text-[#E91E63] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-neutral-50 transition-all duration-200 shadow-lg">
+                  <i className="fas fa-heart mr-2"></i>
+                  Sangam Registration
+                </button>
+              </Link>
+              <Link href="/register">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#E91E63] transition-all duration-200">
+                  <i className="fas fa-user-plus mr-2"></i>
+                  General Registration
+                </button>
+              </Link>
             </div>
             <div className="text-white/80 text-sm pt-4">
               Free to start • No credit card required • AI matching in 24 hours

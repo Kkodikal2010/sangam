@@ -1,0 +1,145 @@
+UI for Sangam 
+
+
+ Opening page: 
+SANGAM
+
+
+(Change image to Sangam)
+
+Konkanis are a small community worldwide already and shrinking because of inter-community marriages. Konkani, as a language and as a cultural community, need to be preserved, so our Konkani Saraswat identity is preserved for future generations.
+
+“Sangam” is a small effort to ensure the continuity of our Konkani Saraswat language and culture - developed for eligible Konkani Saraswats from around the world  of marriageable age and with the intention to get to know each other and hopefully find their suitable match. Looking for a Konkani Saraswat match will be a 3-step process:
+
+Registration: Register your details in the form below. (Only if you are a Konkani or have a Konkani background/roots.)
+Verification: Someone will contact you personally and will verify the information that you provided, including checking if you are a Konkani or have a Konkani background. 
+Access to prospects: Once you are verified then you will be able to access suitable prospects who have registered and have been verified.  
+
+Note: 
+Sangam is not responsible for:
+Whether the person you are interacting with is a Konkani or has a Konkani background.  
+The outcome of the interaction you have with prospects, in terms of any emotional, social or financial implications.
+The success of the subsequent alliance.
+
+
+B.  TERMS & CONDITIONS: (2nd page)
+
+
+
+
+
+
+
+
+
+Sangam Main UI: 
+
+PERSONAL INFORMATION: 
+
+First Name (Mandatory) (Text box):
+Middle Name (Optional) (Text box):
+Last Name (Mandatory) (Text box): 
+Gender (Mandatory) (Dropdown Male/Female):
+Email (Mandatory) (Text box - validation for email):
+Phone (Mandatory) (Phone text validation): 
+Date Of Birth (Mandatory): (Use calendar to select date)
+Height (Feet/Inches): (Optional)  (Please include Feet/Inches - two separate text boxes)
+Country of Citizenship (Mandatory): (Use drop down from a DB)
+Marital Status: Drop-Down (Mandatory): Options: Single, Divorced, Widowed 
+Religion: Drop-down (Mandatory): Hindu, Muslim, Christian, Jain, Parsi, Sikh, Other
+
+Current Location: 
+Country: (Dropdown) (Mandatory)  (Use drop down from a DB)
+State: (Dropdown) (Optional)  (Use filter based on Country)
+City: (Dropdown) (Optional)  
+
+Languages Spoken: (Optional): Text field (Phase 2, can select multiple languages from dropdown)
+
+Kuladevata (Family God) (Optional):
+
+Birth Location: 
+Country: (Dropdown) (Optional)  (Use drop down from a DB)
+State: (Dropdown) (Optional)  (Use filter based on Country)
+City: (Dropdown) (Optional)  
+
+Hobbies: (Text BIG Box) (Optional)
+About Me:  (Text BIG Box) (Optional)
+What am I looking for in my future spouse:  (Text BIG Box) (Optional)
+
+Photo/s: (Attachment to add photos. Max limit of 10)
+
+
+
+
+EDUCATIONAL INFORMATION: 
+
+Highest Education Qualification: (Text) (Optional) (In phase 2, we need to get this from a dropdown db)
+College/University (Text) (Optional): (In phase 2, we need to get this from a dropdown db)
+
+Location:
+Country: (Dropdown) (Optional)  (Use drop down from a DB)
+State: (Dropdown) (Optional)  (Use filter based on Country)
+City: (Dropdown) (Optional) 
+
+
+
+PROFESSIONAL INFORMATION: 
+
+Working Status: Drop down (Optional): Options: Student, Working Full time,
+Working Part time, Not working. 
+Visa/Residency Status (US Citizen/Indian Citizen/H1B/GC etc): (Text) (Optional)
+
+
+SOCIAL MEDIA INFORMATION: 
+Facebook Profile: Text (Optional)
+WhatsApp Profile: Text (Optional)
+Instagram Profile: Text (Optional)
+Twitter Profile:  Text (Optional)
+LinkedIn Profile: Text (Optional)
+
+
+HOROSCOPE INFORMATION:
+
+Birth Location: 
+Country: (Display field from Personal information screen)
+State: (Display field from Personal information screen)
+City: (Display field from Personal information screen)
+
+Time of Birth (Optional):
+Horoscope: (Optional) (Ability to attach horoscope file. For phase 2, we need to generate this file using the date, time and city of this person)
+
+Nakshatra (Optional): 
+Rashi (Optional): 
+Gotra (Optional)
+
+
+FAMILY INFORMATION: 
+
+Father’s First Name (Optional) (Text box):
+Father’s Last Name (Optional) (Text box): 
+Father’s Email (Optional) (Text box - validation for email):
+Father’s Phone (Optional) (Phone text validation): 
+Residence (City/State/Country): (Text box - Optional) 
+
+Mother’s First Name (Optional) (Text box):
+Mother’s Last Name (Optional) (Text box): 
+Mother’s Email (Optional) (Text box - validation for email):
+Mother’s Phone (Optional) (Phone text validation): 
+Residence (City/State/Country): (Text box - Optional) 
+
+Siblings: (in column format, give 5 lines)  
+Dropdown (Brother/Sister) 
+Email:  (Optional) (Text box - validation for email)
+Phone: (Optional) (Phone text validation): 
+ 
+
+Native Origin Ex. Mulky, Udupi (Optional): (Text field)
+
+
+
+Hide/De-activate profile (Optional) Dropbox - Yes/No
+
+
+Submit button
+
+ 
