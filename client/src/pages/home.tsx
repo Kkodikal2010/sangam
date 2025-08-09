@@ -27,14 +27,14 @@ export default function Home() {
               Ready to Find Your Perfect Match?
             </h2>
             <p className="text-xl text-white/90 leading-relaxed">
-              Join over 1 million users who trust Sangam's AI-powered matching to find their life partner. 
+              Join over 1 million users who trust Khushi Kahani's AI-powered matching to find their life partner. 
               Start your journey today with our comprehensive personality assessment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
               <Link href="/sangam-landing">
                 <button className="bg-white text-[#E91E63] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-neutral-50 transition-all duration-200 shadow-lg">
                   <i className="fas fa-heart mr-2"></i>
-                  Sangam Registration
+                  Khushi Kahani Registration
                 </button>
               </Link>
               <Link href="/register">

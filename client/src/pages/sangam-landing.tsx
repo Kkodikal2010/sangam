@@ -9,7 +9,7 @@ export default function SangamLanding() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-6xl font-bold text-rose-600 dark:text-rose-400 mb-4">
-            SANGAM
+            KHUSHI KAHANI
           </h1>
           <div className="w-32 h-32 mx-auto mb-6 bg-rose-100 dark:bg-rose-900 rounded-full flex items-center justify-center">
             <span className="text-rose-600 dark:text-rose-400 text-4xl">❤️</span>
@@ -28,7 +28,7 @@ export default function SangamLanding() {
                 </p>
                 
                 <p>
-                  <strong>"Sangam"</strong> is a small effort to ensure the continuity of our Konkani Saraswat language 
+                  <strong>"Khushi Kahani"</strong> is a small effort to ensure the continuity of our Konkani Saraswat language 
                   and culture - developed for eligible Konkani Saraswats from around the world of marriageable age and 
                   with the intention to get to know each other and hopefully find their suitable match.
                 </p>
@@ -79,7 +79,7 @@ export default function SangamLanding() {
             <CardContent className="p-6">
               <h3 className="font-semibold text-orange-800 dark:text-orange-200 mb-3">Note:</h3>
               <div className="text-sm text-orange-700 dark:text-orange-300 space-y-2">
-                <p><strong>Sangam is not responsible for:</strong></p>
+                <p><strong>Khushi Kahani is not responsible for:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
                   <li>Whether the person you are interacting with is a Konkani or has a Konkani background.</li>
                   <li>The outcome of the interaction you have with prospects, in terms of any emotional, social or financial implications.</li>

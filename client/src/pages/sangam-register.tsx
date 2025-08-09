@@ -59,7 +59,7 @@ export default function SangamRegister() {
         <div className="text-center mb-8">
           <Link href="/sangam-landing">
             <h1 className="text-4xl font-bold text-rose-600 dark:text-rose-400 mb-2 cursor-pointer hover:text-rose-700">
-              SANGAM
+              KHUSHI KAHANI
             </h1>
           </Link>
           <p className="text-gray-600 dark:text-gray-400">Registration Form</p>

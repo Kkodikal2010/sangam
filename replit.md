@@ -1,6 +1,6 @@
 # Overview
 
-Sangam is an AI-powered matrimonial platform that helps users find compatible life partners through advanced machine learning algorithms. The application analyzes personality traits, values, lifestyle preferences, and compatibility factors to provide meaningful match recommendations. Built as a full-stack web application, it features user authentication, comprehensive profile creation, AI-driven compatibility scoring, and match discovery functionality.
+Khushi Kahani is an AI-powered matrimonial platform that helps users find compatible life partners through advanced machine learning algorithms. The application analyzes personality traits, values, lifestyle preferences, and compatibility factors to provide meaningful match recommendations. Built as a full-stack web application, it features user authentication, comprehensive profile creation, AI-driven compatibility scoring, and match discovery functionality.
 
 # User Preferences
 
@@ -18,13 +18,14 @@ Preferred communication style: Simple, everyday language.
 - **COMPLETED**: Django backend connectivity and frontend-backend integration verified
 - Django backend running on port 8000, React frontend on port 5000 (via Vite)
 
-## Sangam UI Integration (January 2025)
-- **COMPLETED**: Created comprehensive Sangam landing page with Konkani Saraswat community focus
+## Khushi Kahani UI Integration (January 2025)
+- **COMPLETED**: Created comprehensive Khushi Kahani landing page with Konkani Saraswat community focus
 - **COMPLETED**: Built detailed 6-section registration form with all specified fields from UI mapping
 - **COMPLETED**: Integrated photo upload (max 10), horoscope file upload, and family information sections
 - **COMPLETED**: Added Terms & Conditions page with community-specific disclaimers
-- **COMPLETED**: Connected Sangam pages to original design via home page and hero section buttons
+- **COMPLETED**: Connected Khushi Kahani pages to original design via home page and hero section buttons
 - **COMPLETED**: Multi-step form with progress tracking and validation for all required fields
+- **COMPLETED**: Updated all branding from "Sangam" to "Khushi Kahani" throughout the application
 - Features: Personal info, Education, Professional, Social media, Horoscope, Family details
 
 # System Architecture

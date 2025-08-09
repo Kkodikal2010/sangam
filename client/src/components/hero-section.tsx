@@ -21,7 +21,7 @@ export default function HeroSection() {
               <Link href="/sangam-landing">
                 <Button className="bg-white text-[#E91E63] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-neutral-50 transition-all duration-200 shadow-lg">
                   <i className="fas fa-heart mr-2"></i>
-                  Sangam - Find Your Match
+                  Khushi Kahani - Find Your Match
                 </Button>
               </Link>
               <Link href="/register">

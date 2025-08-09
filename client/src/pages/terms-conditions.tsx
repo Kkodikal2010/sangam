@@ -10,7 +10,7 @@ export default function TermsConditions() {
         <div className="text-center mb-8">
           <Link href="/sangam-landing">
             <h1 className="text-4xl font-bold text-rose-600 dark:text-rose-400 mb-2 cursor-pointer hover:text-rose-700">
-              SANGAM
+              KHUSHI KAHANI
             </h1>
           </Link>
           <p className="text-gray-600 dark:text-gray-400">Terms & Conditions</p>
@@ -28,13 +28,13 @@ export default function TermsConditions() {
               <div className="prose prose-gray max-w-none dark:prose-invert">
                 <h3>1. Acceptance of Terms</h3>
                 <p>
-                  By using Sangam matrimonial platform, you agree to be bound by these Terms and Conditions. 
+                  By using Khushi Kahani matrimonial platform, you agree to be bound by these Terms and Conditions. 
                   If you do not agree to these terms, please do not use our services.
                 </p>
 
                 <h3>2. Eligibility</h3>
                 <p>
-                  Sangam is exclusively for individuals of Konkani Saraswat heritage or those with Konkani 
+                  Khushi Kahani is exclusively for individuals of Konkani Saraswat heritage or those with Konkani 
                   background/roots. Users must be of legal marriageable age in their jurisdiction and 
                   genuinely seeking matrimonial alliances.
                 </p>
@@ -42,7 +42,7 @@ export default function TermsConditions() {
                 <h3>3. Registration and Verification</h3>
                 <ul>
                   <li>All information provided during registration must be accurate and truthful</li>
-                  <li>Sangam reserves the right to verify any information provided</li>
+                  <li>Khushi Kahani reserves the right to verify any information provided</li>
                   <li>False information may result in immediate account termination</li>
                   <li>Verification process may include personal contact and background checks</li>
                 </ul>
@@ -56,7 +56,7 @@ export default function TermsConditions() {
                 </ul>
 
                 <h3>5. Disclaimer of Responsibility</h3>
-                <p><strong>Sangam is not responsible for:</strong></p>
+                <p><strong>Khushi Kahani is not responsible for:</strong></p>
                 <ul>
                   <li>Verification of Konkani heritage of registered users</li>
                   <li>The outcome of interactions between users</li>
@@ -83,20 +83,20 @@ export default function TermsConditions() {
 
                 <h3>8. Account Termination</h3>
                 <p>
-                  Sangam reserves the right to terminate accounts that violate these terms, 
+                  Khushi Kahani reserves the right to terminate accounts that violate these terms, 
                   engage in inappropriate behavior, or are found to have provided false information.
                 </p>
 
                 <h3>9. Limitation of Liability</h3>
                 <p>
                   Users acknowledge that matrimonial matching involves personal choices and that 
-                  Sangam cannot guarantee successful matches or relationships. Users participate 
+                  Khushi Kahani cannot guarantee successful matches or relationships. Users participate 
                   at their own risk and discretion.
                 </p>
 
                 <h3>10. Modifications</h3>
                 <p>
-                  Sangam reserves the right to modify these terms at any time. Users will be 
+                  Khushi Kahani reserves the right to modify these terms at any time. Users will be 
                   notified of significant changes and continued use constitutes acceptance of 
                   modified terms.
                 </p>
